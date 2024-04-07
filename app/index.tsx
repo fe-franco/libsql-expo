@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View, Button, TouchableOpacity } from "react-native";
+import { Text, View, Button, TouchableOpacity, Pressable } from "react-native";
 
 export default function Page() {
   const [data, setData] = useState<string | null>(null);
@@ -40,7 +40,7 @@ export default function Page() {
       >
         {data}
       </Text>
-      <TouchableOpacity
+      <Pressable
         onPress={() => {
           fetch("/api/db-test", {
             method: "POST",
@@ -67,7 +67,7 @@ export default function Page() {
         >
           Send
         </Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }
