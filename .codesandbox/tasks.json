@@ -12,7 +12,7 @@
     "start": {
       "name": "start",
       "command": "npm run start",
-      "runAtStart": true
+      "runAtStart": false
     },
     "android": {
       "name": "android",
@@ -27,7 +27,7 @@
     "web": {
       "name": "web",
       "command": "npm run web",
-      "runAtStart": false
+      "runAtStart": true
     },
     "db:push": {
       "name": "db:push",
