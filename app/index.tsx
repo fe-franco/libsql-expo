@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, TouchableOpacity } from "react-native";
 
 export default function Page() {
   const [data, setData] = useState<string | null>(null);
@@ -40,8 +40,7 @@ export default function Page() {
       >
         {data}
       </Text>
-      <Button
-        title="Send"
+      <TouchableOpacity
         onPress={() => {
           fetch("/api/db-test", {
             method: "POST",
@@ -55,7 +54,14 @@ export default function Page() {
               .then((data) => setData(JSON.stringify(data)));
           });
         }}
-      />
+        style={{
+          padding: 10,
+          backgroundColor: "blue",
+          borderRadius: 5,
+        }}
+      >
+        <Text>Send</Text>
+      </TouchableOpacity>
     </View>
   );
 }
