@@ -1,10 +1,10 @@
 import { type Config } from "drizzle-kit";
 
 export default {
-  schema: "./server/db/schema",
-  driver: "mysql2",
+  schema: "./lib/db.ts",
+  driver: "turso",
   dbCredentials: {
-    uri: process.env.DATABASE_URL ?? "",
+    url: process.env.DATABASE_URL!,
+    authToken: process.env.DATABASE_TOKEN!,
   },
-  tablesFilter: ["ticket-app_*"],
 } satisfies Config;

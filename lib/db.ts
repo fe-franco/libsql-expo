@@ -1,14 +1,15 @@
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
-import { sql } from "drizzle-orm";
-import { text, integer, sqliteTable } from "drizzle-orm/sqlite-core";
+import { text, sqliteTable } from "drizzle-orm/sqlite-core";
 
 export const posts = sqliteTable("posts", {
-  id: text("id")
-    .primaryKey()
-    .default(sql`uuid_generate_v4()`),
+  id: text("id").notNull().primaryKey(),
   message: text("message").notNull(),
 });
+
+export const schema = {
+  posts,
+};
 
 const client = createClient({
   url: process.env.DATABASE_URL!,
@@ -16,7 +17,5 @@ const client = createClient({
 });
 
 export const db = drizzle(client, {
-  schema: {
-    posts,
-  },
+  schema,
 });
