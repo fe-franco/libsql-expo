@@ -56,11 +56,17 @@ export default function Page() {
         }}
         style={{
           padding: 10,
-          backgroundColor: "blue",
+          backgroundColor: "black",
           borderRadius: 5,
         }}
       >
-        <Text>Send</Text>
+        <Text
+          style={{
+            color: "white",
+          }}
+        >
+          Send
+        </Text>
       </TouchableOpacity>
     </View>
   );
