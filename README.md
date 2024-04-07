@@ -30,5 +30,5 @@ DATABASE_TOKEN="..."
 To run the project, run the following command:
 
 ```bash
-npm start
+npm run web
 ```
